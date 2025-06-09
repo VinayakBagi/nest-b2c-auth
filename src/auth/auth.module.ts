@@ -7,12 +7,13 @@ import { HttpModule } from '@nestjs/axios';
 @Module({
   imports: [
     JwtModule.register({
-      secret: 'your_jwt_secret_here',
+      secret: 'your-jwt-secret',
       signOptions: { expiresIn: '1h' },
     }),
     HttpModule,
   ],
   controllers: [AuthController],
   providers: [AuthService],
+  exports: [AuthService],
 })
 export class AuthModule {}
